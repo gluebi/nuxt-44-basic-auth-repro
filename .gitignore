@@ -1,0 +1,9 @@
+node_modules
+.nuxt
+.output
+.data
+.env
+.DS_Store
+.pnpm-store
+.playwright-mcp
+# console-errors-*.log captured at repro time IS checked in; nothing else

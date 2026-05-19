@@ -1,0 +1,71 @@
+Total messages: 0 (Errors: 0, Warnings: 0)
+Returning 8 messages for level "error"
+
+[ERROR] SecurityError: Failed to execute 'replaceState' on 'History': A history state object with URL 'http://localhost:8082/' cannot be created in a document with origin 'http://localhost:8082' and URL 'http://test:test@localhost:8082/'.
+    at o (http://localhost:8082/_nuxt/CGUUqbSM.js:4:103968)
+    at ng (http://localhost:8082/_nuxt/CGUUqbSM.js:4:103721)
+    at rg (http://localhost:8082/_nuxt/CGUUqbSM.js:4:104392)
+    at setup (http://localhost:8082/_nuxt/CGUUqbSM.js:4:125383)
+    at http://localhost:8082/_nuxt/CGUUqbSM.js:4:68399
+    at r (http://localhost:8082/_nuxt/CGUUqbSM.js:4:69243)
+    at Object.runWithContext (http://localhost:8082/_nuxt/CGUUqbSM.js:4:13268)
+    at gi (http://localhost:8082/_nuxt/CGUUqbSM.js:4:69280)
+    at http://localhost:8082/_nuxt/CGUUqbSM.js:4:67262
+    at nl.run (http://localhost:8082/_nuxt/CGUUqbSM.js:2:4939) @ http://localhost:8082/_nuxt/CGUUqbSM.js:3
+[ERROR] [nuxt] error caught during app initialization Error: Context conflict
+    at r (http://localhost:8082/_nuxt/CGUUqbSM.js:4:65506)
+    at Object.set (http://localhost:8082/_nuxt/CGUUqbSM.js:4:65890)
+    at gi (http://localhost:8082/_nuxt/CGUUqbSM.js:4:69264)
+    at http://localhost:8082/_nuxt/CGUUqbSM.js:4:67262
+    at nl.run (http://localhost:8082/_nuxt/CGUUqbSM.js:2:4939)
+    at Object.runWithContext (http://localhost:8082/_nuxt/CGUUqbSM.js:4:67254)
+    at lh (http://localhost:8082/_nuxt/CGUUqbSM.js:4:68380)
+    at l (http://localhost:8082/_nuxt/CGUUqbSM.js:4:68669)
+    at ah (http://localhost:8082/_nuxt/CGUUqbSM.js:4:68964)
+    at Ki (http://localhost:8082/_nuxt/CGUUqbSM.js:4:136466) @ http://localhost:8082/_nuxt/CGUUqbSM.js:3
+[ERROR] Hydration completed but contains mismatches. @ http://localhost:8082/_nuxt/CGUUqbSM.js:1
+[ERROR] [nuxt] error caught during app initialization TypeError: Cannot read properties of undefined (reading 'beforeEach')
+    at setup (http://localhost:8082/_nuxt/CGUUqbSM.js:4:135146)
+    at Kn (http://localhost:8082/_nuxt/CGUUqbSM.js:2:21340)
+    at hf (http://localhost:8082/_nuxt/CGUUqbSM.js:4:40346)
+    at df (http://localhost:8082/_nuxt/CGUUqbSM.js:4:40135)
+    at ee (http://localhost:8082/_nuxt/CGUUqbSM.js:4:23407)
+    at u (http://localhost:8082/_nuxt/CGUUqbSM.js:2:31237)
+    at c (http://localhost:8082/_nuxt/CGUUqbSM.js:2:30252)
+    at mount (http://localhost:8082/_nuxt/CGUUqbSM.js:4:13000)
+    at t.mount (http://localhost:8082/_nuxt/CGUUqbSM.js:4:50830)
+    at Ki (http://localhost:8082/_nuxt/CGUUqbSM.js:4:136579) @ http://localhost:8082/_nuxt/CGUUqbSM.js:3
+[ERROR] SecurityError: Failed to execute 'replaceState' on 'History': A history state object with URL 'http://localhost:8080/' cannot be created in a document with origin 'http://localhost:8080' and URL 'http://test:test@localhost:8080/'.
+    at o (http://localhost:8080/_nuxt/DB_mcCIs.js:4:100621)
+    at Xp (http://localhost:8080/_nuxt/DB_mcCIs.js:4:100374)
+    at Qp (http://localhost:8080/_nuxt/DB_mcCIs.js:4:101045)
+    at setup (http://localhost:8080/_nuxt/DB_mcCIs.js:4:122198)
+    at http://localhost:8080/_nuxt/DB_mcCIs.js:4:68826
+    at r (http://localhost:8080/_nuxt/DB_mcCIs.js:4:69670)
+    at Object.runWithContext (http://localhost:8080/_nuxt/DB_mcCIs.js:4:13268)
+    at ci (http://localhost:8080/_nuxt/DB_mcCIs.js:4:69707)
+    at http://localhost:8080/_nuxt/DB_mcCIs.js:4:67584
+    at Qi.run (http://localhost:8080/_nuxt/DB_mcCIs.js:2:4939) @ http://localhost:8080/_nuxt/DB_mcCIs.js:3
+[ERROR] [nuxt] error caught during app initialization Error: Context conflict
+    at r (http://localhost:8080/_nuxt/DB_mcCIs.js:4:65828)
+    at Object.set (http://localhost:8080/_nuxt/DB_mcCIs.js:4:66212)
+    at ci (http://localhost:8080/_nuxt/DB_mcCIs.js:4:69691)
+    at http://localhost:8080/_nuxt/DB_mcCIs.js:4:67584
+    at Qi.run (http://localhost:8080/_nuxt/DB_mcCIs.js:2:4939)
+    at Object.runWithContext (http://localhost:8080/_nuxt/DB_mcCIs.js:4:67576)
+    at nh (http://localhost:8080/_nuxt/DB_mcCIs.js:4:68807)
+    at l (http://localhost:8080/_nuxt/DB_mcCIs.js:4:69096)
+    at rh (http://localhost:8080/_nuxt/DB_mcCIs.js:4:69391)
+    at ji (http://localhost:8080/_nuxt/DB_mcCIs.js:4:134230) @ http://localhost:8080/_nuxt/DB_mcCIs.js:3
+[ERROR] Hydration completed but contains mismatches. @ http://localhost:8080/_nuxt/DB_mcCIs.js:1
+[ERROR] [nuxt] error caught during app initialization TypeError: Cannot read properties of undefined (reading 'beforeEach')
+    at setup (http://localhost:8080/_nuxt/DB_mcCIs.js:4:132702)
+    at Gn (http://localhost:8080/_nuxt/DB_mcCIs.js:2:21340)
+    at cf (http://localhost:8080/_nuxt/DB_mcCIs.js:4:40346)
+    at af (http://localhost:8080/_nuxt/DB_mcCIs.js:4:40135)
+    at ee (http://localhost:8080/_nuxt/DB_mcCIs.js:4:23407)
+    at u (http://localhost:8080/_nuxt/DB_mcCIs.js:2:31237)
+    at c (http://localhost:8080/_nuxt/DB_mcCIs.js:2:30252)
+    at mount (http://localhost:8080/_nuxt/DB_mcCIs.js:4:13000)
+    at t.mount (http://localhost:8080/_nuxt/DB_mcCIs.js:4:50830)
+    at ji (http://localhost:8080/_nuxt/DB_mcCIs.js:4:134343) @ http://localhost:8080/_nuxt/DB_mcCIs.js:3
