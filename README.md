@@ -25,18 +25,19 @@ The user-visible effect: client-side hydration fails, `<NuxtLink>` clicks fall b
 
 Observed while reproducing this report (all on Chromium 148, macOS):
 
-| Nuxt    | vue-router (natural) | First-load URL          | Result   |
-|---------|----------------------|-------------------------|----------|
-| **4.4.6**   | **5.0.7**            | `http://test:test@localhost:8080/` | ❌ **CRASHES** — all four errors below |
-| 4.4.6   | 5.0.7                | `http://localhost:8080/` (auth via dialog) | ✅ clean |
-| 4.0.3   | 4.6.4                | `http://test:test@localhost:8082/` | ✅ clean (this repo's control) |
+| Nuxt    | declared peer    | natural install | First-load URL                         | Result |
+|---------|------------------|-----------------|----------------------------------------|--------|
+| 4.2.x   | `vue-router ^4.6.3`  | 4.6.4 | `http://test:test@localhost:8082/`     | ✅ clean (companion repo's control) |
+| 4.3.x   | `vue-router ^4.6.4`  | 4.6.4 | _(not tested in this repro)_            | _(expected clean)_ |
+| **4.4.x**   | **`vue-router ^5.0.3`** | **5.0.7** | `http://test:test@localhost:8080/`     | ❌ **CRASHES** — all four errors below |
+| 4.4.x   | `vue-router ^5.0.3`  | 5.0.7 | `http://localhost:8080/` (auth via dialog) | ✅ clean |
 
-> **Regression boundary observed during this reproduction.** The breakage tracks vue-router's major-version bump: Nuxt 4.0.x naturally resolves `vue-router@4.6.4` and is unaffected; Nuxt 4.4.x naturally resolves `vue-router@5.0.7` and crashes. A targeted check with `nuxt@4.2.2` + the forced `vue-router@5.0.7` resolution also crashes, suggesting the change is on the vue-router side rather than in Nuxt's own router setup — but the cascade (`Context conflict`, then `Cannot read properties of undefined (reading 'beforeEach')`) is a Nuxt symptom: vue-router's throw is swallowed somewhere in Nuxt's plugin pipeline and leaves `useRouter()` undefined for every plugin that runs after it. Fixing either side stops the cascade.
+> **The regression starts in Nuxt 4.4.** That is the exact release where Nuxt bumped its declared vue-router peer from `^4.6.3` (Nuxt 4.2.x) → `^4.6.4` (Nuxt 4.3.x) → `^5.0.3` (Nuxt 4.4.x). With a forced `vue-router@5.0.7` override under Nuxt 4.2.2 the bug also fires — so the breaking change appears to live in vue-router 5's initial-history setup. The cascade (`Context conflict`, then `Cannot read properties of undefined (reading 'beforeEach')`) is a Nuxt symptom: vue-router's throw isn't caught in Nuxt's plugin pipeline, leaving `useRouter()` undefined for every plugin that runs after it. Either project can fix it.
 
 ## Environment
 
-- **Nuxt**: 4.4.6 (broken) / 4.0.3 (control)
-- **vue-router**: 5.0.7 (broken) / 4.6.4 (control)
+- **Nuxt**: 4.4.6 (broken) / 4.2.2 (control)
+- **vue-router**: 5.0.7 (broken) / 4.6.4 (control, transitively)
 - **Node**: 20-alpine (inside docker), 24.15.0 (host)
 - **pnpm**: 10.28.2
 - **nginx**: alpine (basic_auth)
@@ -74,7 +75,7 @@ In the same fresh profile, close the tab and open `http://localhost:8080/` direc
 
 ### Regression check — older Nuxt + vue-router 4
 
-A companion repo, [`gluebi/nuxt-40-basic-auth-control`](https://github.com/gluebi/nuxt-40-basic-auth-control) (pinned to Nuxt 4.0.3, which naturally pulls vue-router 4.6.4), ships an identical setup on port `:8082`. Clone it, `docker compose up --build`, then visit `http://test:test@localhost:8082/` in the same fresh Chrome profile. Console is clean; `<NuxtLink>` navigates client-side; no `SecurityError`. The repo's `console-clean-40.log` is the capture from this verification run.
+A companion repo, [`gluebi/nuxt-42-basic-auth-control`](https://github.com/gluebi/nuxt-42-basic-auth-control) (pinned to Nuxt 4.2.2, which transitively pulls vue-router 4.6.4), ships an identical setup on port `:8082`. Clone it, `docker compose up --build`, then visit `http://test:test@localhost:8082/` in the same fresh Chrome profile. Console is clean; `<NuxtLink>` navigates client-side; no `SecurityError`. The repo's `console-clean-42.log` is the capture from this verification run.
 
 ## Reproducer notes (read these — the bug is fiddly)
 
