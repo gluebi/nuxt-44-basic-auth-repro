@@ -24,10 +24,10 @@ Browser:          Chromium 148 (via Playwright, headless). Same behaviour is exp
 
 ### Reproduction
 
-Full minimal repro: **https://github.com/<USER>/nuxt-44-basic-auth-repro**
+Full minimal repro: **https://github.com/gluebi/nuxt-44-basic-auth-repro**
 
 ```bash
-git clone https://github.com/<USER>/nuxt-44-basic-auth-repro.git
+git clone https://github.com/gluebi/nuxt-44-basic-auth-repro.git
 cd nuxt-44-basic-auth-repro
 docker compose up --build
 # wait for "Listening on http://0.0.0.0:3000"
@@ -40,7 +40,7 @@ open -na "Google Chrome" --args --user-data-dir=/tmp/repro
 # then visit the URL above
 ```
 
-The sibling directory in the repo (`../nuxt-40-basic-auth-control/`, Nuxt 4.0.3 + vue-router 4.6.4) ships an identical setup on `:8082` and **does not** crash, isolating the regression to the vue-router 4 → 5 jump.
+The companion repo [`gluebi/nuxt-40-basic-auth-control`](https://github.com/gluebi/nuxt-40-basic-auth-control) (Nuxt 4.0.3 + vue-router 4.6.4) ships an identical setup on `:8082` and **does not** crash, isolating the regression to the vue-router 4 → 5 jump.
 
 > The docker-compose + nginx fronting is required because Chrome only preserves userinfo in `document.URL` after a real `401 / WWW-Authenticate` challenge. StackBlitz / CodeSandbox cannot reproduce this — there is no way to inject a 401-issuing proxy in front of their preview hosts.
 

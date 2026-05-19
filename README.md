@@ -74,7 +74,7 @@ In the same fresh profile, close the tab and open `http://localhost:8080/` direc
 
 ### Regression check — older Nuxt + vue-router 4
 
-A sibling directory `../nuxt-40-basic-auth-control/` (pinned to Nuxt 4.0.3, which naturally pulls vue-router 4.6.4) ships an identical setup on port `:8082`. Run `docker compose up --build` there and visit `http://test:test@localhost:8082/` in the same fresh Chrome profile. Console is clean; `<NuxtLink>` navigates client-side; no `SecurityError`. See `../nuxt-40-basic-auth-control/console-clean-40.log` for the capture from this verification run.
+A companion repo, [`gluebi/nuxt-40-basic-auth-control`](https://github.com/gluebi/nuxt-40-basic-auth-control) (pinned to Nuxt 4.0.3, which naturally pulls vue-router 4.6.4), ships an identical setup on port `:8082`. Clone it, `docker compose up --build`, then visit `http://test:test@localhost:8082/` in the same fresh Chrome profile. Console is clean; `<NuxtLink>` navigates client-side; no `SecurityError`. The repo's `console-clean-40.log` is the capture from this verification run.
 
 ## Reproducer notes (read these — the bug is fiddly)
 
